@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/worldgenset.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/worldgen.gd" type="Script" id=2]
+[ext_resource path="res://scripts/mapcam.gd" type="Script" id=3]
+[ext_resource path="res://scripts/map_controls.gd" type="Script" id=4]
+[ext_resource path="res://assets/heatmap.tres" type="TileSet" id=5]
+[ext_resource path="res://scenes/right_gui.tscn" type="PackedScene" id=6]
+
+[node name="worldroot" type="Node2D"]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 1100.0
+margin_bottom = 650.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1100, 650 )
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+
+[node name="world" type="Node2D" parent="ViewportContainer/Viewport"]
+script = ExtResource( 2 )
+
+[node name="heat_map" type="TileMap" parent="ViewportContainer/Viewport/world"]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 32, 32 )
+format = 1
+
+[node name="map" type="TileMap" parent="ViewportContainer/Viewport/world"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+
+[node name="border" type="ColorRect" parent="ViewportContainer/Viewport/world/map"]
+modulate = Color( 0.898039, 0.305882, 0.305882, 1 )
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 14484.0
+margin_bottom = 11284.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="map_cam" type="Camera2D" parent="ViewportContainer/Viewport/world"]
+position = Vector2( 4536, 4790 )
+current = true
+zoom = Vector2( 15, 15 )
+script = ExtResource( 3 )
+
+[node name="map_controls" type="Node2D" parent="ViewportContainer/Viewport/world"]
+script = ExtResource( 4 )
+
+[node name="right_gui" parent="." instance=ExtResource( 6 )]

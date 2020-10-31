@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.662252, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.210362, 0.0857032, 0.0857032, 1, 0.317647, 0.129412, 0.129412, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="right_gui" type="Control"]
+margin_left = 1100.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right_background" type="TextureRect" parent="."]
+margin_right = 820.0
+margin_bottom = 1080.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fps_text" type="RichTextLabel" parent="."]
+anchor_bottom = 20.0
+margin_right = 209.0
+margin_bottom = -21559.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cursor_coord_text" type="RichTextLabel" parent="."]
+anchor_bottom = 20.0
+margin_top = 60.0
+margin_right = 209.0
+margin_bottom = -21499.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="camera_info_text" type="RichTextLabel" parent="."]
+anchor_bottom = 20.0
+margin_top = 120.0
+margin_right = 209.0
+margin_bottom = -21439.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cursor_tile_text" type="RichTextLabel" parent="."]
+anchor_bottom = 20.0
+margin_top = 180.0
+margin_right = 209.0
+margin_bottom = -21379.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cursor_tile_text2" type="RichTextLabel" parent="."]
+anchor_bottom = 20.0
+margin_left = 16.1501
+margin_top = 275.95
+margin_right = 225.15
+margin_bottom = -21283.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
