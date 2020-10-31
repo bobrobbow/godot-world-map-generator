@@ -36,11 +36,6 @@ func _physics_process(delta):
 	_snap_to_limits()
 
 func _input(event):
-	if event.is_action_pressed("view_pan_mouse"):
-		mouse_captured = true
-		camera_follow = false
-	elif event.is_action_released("view_pan_mouse"):
-		mouse_captured = false
 	if mouse_captured && event is InputEventMouseMotion:
 		position -= event.relative * zoom #like we're grabbing the map
 	if event is InputEventMouse:
@@ -54,12 +49,6 @@ func _input(event):
 				if zoom > Vector2( min_zoom, min_zoom ):
 					zoom_at_point(1/zoom_step,mouse_position)
 					_snap_zoom_limits()
-	if event.is_action_pressed("zoom_in"):
-		zoom /= zoom_step
-		_snap_zoom_limits()
-	if event.is_action_pressed("zoom_out"):
-		zoom *= zoom_step
-		_snap_zoom_limits()
 
 func zoom_at_point(zoom_change, point):
 	var c0 = global_position # camera position
